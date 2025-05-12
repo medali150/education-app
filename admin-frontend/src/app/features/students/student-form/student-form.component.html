@@ -1,0 +1,44 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ isEditMode ? 'Edit Student' : 'Add New Student' }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Enter student name">
+          <mat-error *ngIf="studentForm.get('name')?.hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Enter student email">
+          <mat-error *ngIf="studentForm.get('email')?.hasError('required')">Email is required</mat-error>
+          <mat-error *ngIf="studentForm.get('email')?.hasError('email')">Please enter a valid email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Department</mat-label>
+          <input matInput formControlName="department" placeholder="Enter department">
+          <mat-error *ngIf="studentForm.get('department')?.hasError('required')">Department is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Age</mat-label>
+          <input matInput type="number" formControlName="age" placeholder="Enter age">
+          <mat-error *ngIf="studentForm.get('age')?.hasError('required')">Age is required</mat-error>
+          <mat-error *ngIf="studentForm.get('age')?.hasError('min') || studentForm.get('age')?.hasError('max')">Age must be between 16 and 100</mat-error>
+        </mat-form-field>
+
+        <div class="button-container">
+          <button mat-button type="button" (click)="goBack()">Cancel</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="studentForm.invalid || isLoading">
+            <span *ngIf="!isLoading">{{ isEditMode ? 'Update' : 'Save' }}</span>
+            <mat-spinner *ngIf="isLoading" diameter="24"></mat-spinner>
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,58 @@
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+mat-card {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+mat-card-header {
+  background-color: #3f51b5;
+  color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+mat-card-title {
+  color: white;
+  font-weight: 500;
+  font-size: 24px;
+  margin: 0;
+}
+
+mat-card-content {
+  padding: 0 24px 24px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+mat-form-field {
+  margin-bottom: 20px;
+}
+
+input.mat-input-element {
+  padding: 12px 0;
+}
+
+button[mat-raised-button] {
+  padding: 8px 24px;
+  font-weight: 500;
+}
+
+button[mat-button] {
+  padding: 8px 16px;
+}

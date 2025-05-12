@@ -1,0 +1,49 @@
+<div class="dashboard-container">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <h1>Admin Dashboard</h1>
+    </div>
+    <div class="navbar-menu">
+      <ul class="nav-links">
+        <li><a [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a></li>
+        <li><a [routerLink]="['/students']" routerLinkActive="active">Students</a></li>
+        <li><a [routerLink]="['/professors']" routerLinkActive="active">Professors</a></li>
+      </ul>
+      <div class="user-menu">
+        <span class="user-name" *ngIf="adminName">{{ adminName }}</span>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <div class="dashboard-content">
+    <div class="dashboard-header">
+      <h2>Welcome to the Admin Dashboard</h2>
+      <p>Manage your educational platform from here</p>
+    </div>
+
+    <div class="dashboard-cards">
+      <div class="card" (click)="navigateToStudents()">
+        <div class="card-icon">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <div class="card-content">
+          <h3>Students</h3>
+          <p>Manage student records</p>
+        </div>
+      </div>
+
+      <div class="card" (click)="navigateToProfessors()">
+        <div class="card-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <div class="card-content">
+          <h3>Professors</h3>
+          <p>Manage professor accounts</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
